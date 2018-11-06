@@ -1,0 +1,23 @@
+<!doctype HTML>
+<html>
+  <head>
+    <title>
+      Index
+    </title>
+  </head>
+  <body>
+    <p>id is <%= id %></p>
+      <p>name <%= data.name %></p>
+      <p>age <%= data.age %></p>
+      <h2>Hoby </h2>
+      <ul>
+        <!-- <li>count of data= <%= data.hoby %></li> -->
+        <% data.hoby.forEach(function(item){ %>
+          <li><%=item%></li>
+        <% }); %>
+      </ul>
+    <h1>
+      Hello! Now you know how to serve HTML files using Node.js!!!
+    </h1>
+  </body>
+</html>

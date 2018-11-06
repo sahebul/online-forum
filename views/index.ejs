@@ -1,0 +1,114 @@
+<!doctype HTML>
+<html>
+  <head>
+    <title>
+      Home-Online forum
+    </title>
+    <style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+
+    /* Create two columns/boxes that floats next to each other */
+    .top-post {
+        float: left;
+        width: 35%;
+        min-height: 50%;
+        background: #F6FAF9;
+        padding: 20px;
+    }
+
+
+    .add-post {
+        float: left;
+        padding: 0px 20px 20px 20px;
+        width: 65%;
+        min-height: 50%;
+        background-color: #FEFFFF;
+
+    }
+
+    /* Clear floats after the columns */
+    section:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    hr {
+        height:1px;
+        border:none;
+        color:#000;
+        background-color:#3BBB96;
+        margin-bottom: 25px;
+    }
+    .addbtn {
+      float: right;
+      background-color: #3BBB96;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 20%;
+      opacity: 0.9;
+    }
+
+    /* Clear floats */
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #E1F0F0;
+}
+
+    </style>
+  </head>
+  <body>
+    <% include header.ejs %>
+    <h2>Welcome to online forum</h2>
+    <hr>
+    <section>
+      <%= all_post %>
+        <div class="add-post">
+
+                    <%for (var result in all_post){%>
+                        <li><%=result%></li>
+                <%}%>
+        <table>
+
+            <tr>
+              <td>Peter</td>
+              <td>Griffin</td>
+              <td>$100</td>
+            </tr>
+
+          </table>
+        </div>
+
+      <div class="top-post">
+        <h1>Top Discussions</h1>
+        <p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+        <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+
+    </div>
+
+    </section>
+
+  </body>
+</html>
