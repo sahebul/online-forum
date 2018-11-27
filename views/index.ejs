@@ -84,19 +84,24 @@ th, td {
     <h2>Welcome to online forum</h2>
     <hr>
     <section>
-      <%= all_post %>
         <div class="add-post">
 
-                    <%for (var result in all_post){%>
-                        <li><%=result%></li>
-                <%}%>
         <table>
+          <% 
+            if(all_post){
+              all_post.forEach(function(post){
+              %>
+              <tr>
+                <td><a href="/post/<%= post.post_id%>/<%= post.title.replace(/\s+/g, '-').toLowerCase()%>"><%= post.title%></a></td>
+                <td><%= post.posted_by%></td>
+                <td><%= post.created_date%></td>
+              </tr>
+              <%});
+            }else{ %>
+              <div>no data</div>
+            <%}%>
 
-            <tr>
-              <td>Peter</td>
-              <td>Griffin</td>
-              <td>$100</td>
-            </tr>
+
 
           </table>
         </div>

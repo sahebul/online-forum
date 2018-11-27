@@ -24,24 +24,23 @@ app.use(function(req, res, next) {
 
   next();
 });
-var all_post="";
+
 app.get('/',function(req,res){
   var post_model=require('./models/posts_model');
-
+var all_post="";
   //call Fn for db query with callback
-post_model.get_all_posts("yourname", function(err,data){
+post_model.get_all_posts("name", function(err,data){
         if (err) {
-            // error handling code goes here
             console.log("ERROR : ",err);
         } else {
-            // code to execute on data retrieval
             all_post=data;
-            console.log("result from db is : ",all_post[0]);
+            res.render('index',{userSession:res.locals.user,all_post:all_post});
         }
 
 });
-console.log(all_post);
-  res.render('index',{userSession:res.locals.user,all_post:all_post});
+  console.log("result from db is : ",all_post);
+//console.log(all_post);
+  //res.render('index',{userSession:res.locals.user,all_post:all_post});
 });
 app.get('/login',function(req,res){
   if(res.locals.user){
